@@ -1,0 +1,27 @@
+<%= form_with(model: decrecord, local: true) do |form| %>
+  <% if decrecord.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(decrecord.errors.count, "error") %> prohibited this decrecord from being saved:</h2>
+
+      <ul>
+      <% decrecord.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.text_field :time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pc_num %>
+    <%= form.text_field :pc_num %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Decpcbars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ip sart</th>
+      <th>Ip num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decpcbars.each do |decpcbar| %>
+      <tr>
+        <td><%= decpcbar.name %></td>
+        <td><%= decpcbar.ip_sart %></td>
+        <td><%= decpcbar.ip_num %></td>
+        <td><%= link_to 'Show', decpcbar %></td>
+        <td><%= link_to 'Edit', edit_decpcbar_path(decpcbar) %></td>
+        <td><%= link_to 'Destroy', decpcbar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Decpcbar', new_decpcbar_path %>

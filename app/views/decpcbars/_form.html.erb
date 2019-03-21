@@ -1,0 +1,32 @@
+<%= form_with(model: decpcbar, local: true) do |form| %>
+  <% if decpcbar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(decpcbar.errors.count, "error") %> prohibited this decpcbar from being saved:</h2>
+
+      <ul>
+      <% decpcbar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ip_sart %>
+    <%= form.text_field :ip_sart %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ip_num %>
+    <%= form.text_field :ip_num %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

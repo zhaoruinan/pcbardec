@@ -1,0 +1,2 @@
+class Decpcbar < ApplicationRecord
+end

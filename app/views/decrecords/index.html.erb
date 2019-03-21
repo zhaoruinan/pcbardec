@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Decrecords</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Pc num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @decrecords.reverse.each do |decrecord| %>
+      <tr>
+        <td><%= decrecord.time %></td>
+        <td><%= decrecord.pc_num %></td>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Decrecord', new_decrecord_path %>
