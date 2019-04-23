@@ -1,27 +1,26 @@
-<p id="notice"><%= notice %></p>
+<head>
+<script type="text/javascript">
+    function operation()
+    {	
 
-<h1>Decrecords</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Time</th>
-      <th>Pc num</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @decrecords.reverse.each do |decrecord| %>
-      <tr>
+    }
+</script>
+</head>
+<h1>xeno pc방 happy everyday</h1>
+<%= select_date Date.today, prefix: :start_date %> <%= select_date Date.today, prefix: :start_date %>  <input type="button" id="search" value="search" style=" background-color:#FFFFFF;" action=DecrecordsHelper.dec_search(@decrecords) method="post" onclick="operation();"/>
+<hr />
+<% @decrecords.each do |decrecord| %>
+  <h2><%= decrecord.title %></h2>
+  <p>
+  <%= decrecord.body %>
+  <tr>
         <td><%= decrecord.time %></td>
         <td><%= decrecord.pc_num %></td>
       
       </tr>
-    <% end %>
-  </tbody>
-</table>
+  </p>
+<% end %>
+<hr />
+<%= paginate @decrecords %>
+<%= page_entries_info @decrecords %>
 
-<br>
-
-<%= link_to 'New Decrecord', new_decrecord_path %>
