@@ -37,3 +37,4 @@ append :linked_files, "config/database.yml", "config/master.key"
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+set :ssh_options, { forward_agent: true, paranoid: true, keys: "~/.ssh/id_ed25519" }
