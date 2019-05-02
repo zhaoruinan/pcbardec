@@ -4,7 +4,7 @@ class DecrecordsController < ApplicationController
   # GET /decrecords
   # GET /decrecords.json
   def index
-    @decrecords = Decrecord.page(params[:page]).per(12)
+    @decrecords = Decrecord.page(params[:page]).per(24)
   end
 
   # GET /decrecords/1
