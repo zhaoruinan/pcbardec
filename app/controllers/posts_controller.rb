@@ -1,18 +1,20 @@
 class PostsController < ApplicationController
 	def show
-		@posts = Post.find(parms[:id])
+		@post = Post.find(params[:id])
 	end
 	def index
-		@post = Post.all.order(‘creater_at DESC’)
+		@posts = Post.all.order('created_at DESC')
 	end
 	
 	def new
 	end
 	def create
-	@post = Post.new(post_params)
-	@post.save
-
+		@post = Post.new(post_params)
+		@post.save
 		redirect_to @post
+	end
+
+	def edit
 	end
 
 private
