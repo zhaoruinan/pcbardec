@@ -1,7 +1,11 @@
-<h1>this the index.html.erb file.. Yay!</h1>
+<h1>This is my blog!welcome!</h1>
 <% @posts.each do |post| %>
 	<div class=“post_wrapper”>
 		<h2 class=“title”><%= link_to post.title,post %></h2>
 		<p class=“date”><%= post.created_at.strftime("%B, %d, %Y") %></p>
+		<% if post.user == current_user %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 	</div>
 <% end %>
