@@ -41,6 +41,8 @@ gem 'mysql2', '~> 0.5.2'
 gem 'gruff', '~> 0.7.0'
 gem 'rmagick', '~> 2.13'
 gem 'kaminari'
+gem 'sdoc', '~> 0.4.1',   group: :doc
+gem 'devise', '~> 4.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
