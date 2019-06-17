@@ -12,5 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+//= require wangEditor.min
+//= require ./ueditor_config
+//= require kindeditor
 //= require_tree .

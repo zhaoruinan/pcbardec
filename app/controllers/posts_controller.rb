@@ -5,6 +5,29 @@ class PostsController < ApplicationController
 
   # GET /links
   # GET /links.json
+  skip_before_action :verify_authenticity_token, only: :upload #不验证token
+
+  def upload
+    @imgFile = params[:imgFile] #取文件
+    unless @imgFile.nil?
+      begin
+        uploader = ImageUploader.new
+        uploader.store!(@imgFile)
+        file_url = uploader.url 
+        if ENV['RAILS_RELATIVE_URL_ROOT']
+          file_url = ENV['RAILS_RELATIVE_URL_ROOT'] + file_url
+        end
+        render(plain: file_url) and return #上传七牛成功后返回图片地址
+      rescue CarrierWave::UploadError => e
+        show_error(e.message) and return
+      rescue Exception => e
+        show_error(e.to_s) and return
+      end
+    else
+      show_error("No File Selected!") and return
+    end
+  end
+
   def index
     @posts = Post.all.order('created_at DESC')
   end
@@ -44,7 +67,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Link was successfully updated.' }
+        format.html { redirect_to @post, notice: 'post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -89,5 +112,8 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body)
+    end
+    def show_error(msg)
+      render plain: "error|#{msg}" #失败后返回'error|XXXXX'格式的内容
     end
 end
