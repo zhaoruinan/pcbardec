@@ -41,13 +41,6 @@ gem 'mysql2', '~> 0.5.2'
 gem 'gruff', '~> 0.7.0'
 gem 'rmagick', '~> 2.13'
 gem 'kaminari'
-gem 'sdoc', '~> 0.4.1',   group: :doc
-gem 'devise', '~> 4.2'
-gem 'rails_wangeditor', '~> 0.1.8'
-gem 'carrierwave'
-gem 'carrierwave-qiniu'
-gem 'ueditor_rails', :git => 'https://github.com/jasl/ueditor_rails.git'
-gem 'rails_kindeditor'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

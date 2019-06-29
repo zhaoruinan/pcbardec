@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Play with robot</title>
+    <title>Pcbardec</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,36 +10,6 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <ul>
-        <li><%= link_to 'Submit post', new_post_path %></li>
-        <li><%= link_to 'Account', edit_user_registration_path %></li>
-        <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-      </ul>
-    <% else %>
-      <ul>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-      </ul>
-    <% end %>
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-    <% end %>
-    <div id=“sidebar”>
-      <ul>
-        <li class=“category”>I am Ryan Zhao, graduate student majored in robot</li>
-        <li><%= link_to "Blog", root_path %></li>
-        <li>enjoy!</li>
-      </ul>
-
-  <ul>
-    <li class=“category”>Social</li>
-    <li><%= link_to "@HYU Biorobotics Lab", url_with_protocol("http://biorobotics.hanyang.ac.kr") %> </li>
-    <li><%= link_to "@github", url_with_protocol("https://github.com/zhaoruinan") %> </li>
-    <li><%= link_to "@Twitter", url_with_protocol("https://twitter.com/ZRuinan") %> </li>
-    <li><%= link_to "@微博", url_with_protocol("https://weibo.com/u/1245076851?refer_flag=1005055010_") %> </li>
-    <li><a href="mailto:z_ruinan@hotmail.com">email:z_ruinan@hotmail.com</a></li>
-  </ul>
-</div>
     <%= yield %>
   </body>
 </html>
